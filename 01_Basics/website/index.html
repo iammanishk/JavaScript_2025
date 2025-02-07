@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>This is a practice website for Javascript</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, placeat
+      ex! Pariatur neque ex corporis, sint eaque culpa architecto nisi ducimus
+      eius facere numquam at labore quae voluptatum adipisci sunt.
+    </p>
+    <div id="parent">
+      <div class="child">
+        <p>Adults Plain Cotton T-Shirt</p>
+        <p>Price: $4.99</p>
+        <div class="button_container">
+          <button onclick="alert('Item added to cart')">add to cart</button>
+          <button onclick="alert('Item bought')">buy now</button>
+        </div>
+        <div class="button_container2">
+          <button
+            onclick="console.log(`cart quantity is: ${cartQuantity}`);
+                "
+          >
+            show quantity
+          </button>
+
+          <button
+            onclick="
+                cartQuantity = cartQuantity + 1;
+                console.log(`cart quantity is: ${cartQuantity}`);
+                "
+          >
+            add to cart
+          </button>
+
+          <button
+            onclick="
+                    cartQuantity = cartQuantity + 2;
+                    console.log(`cart quantity is: ${cartQuantity}`);
+                    "
+          >
+            +2
+          </button>
+
+          <button
+            onclick="
+                    cartQuantity = cartQuantity + 3;
+                    console.log(`cart quantity is: ${cartQuantity}`);
+                "
+          >
+            +3
+          </button>
+
+          <button
+            onclick="
+                        cartQuantity = 0;
+                        console.log(`cart is reset\ncart quantity is: ${cartQuantity}`);
+                    "
+          >
+            reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let cartQuantity = 0;
+  </script>
+</html>
