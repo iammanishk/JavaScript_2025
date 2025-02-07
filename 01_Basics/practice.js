@@ -1,16 +1,24 @@
-let text = "My name is: ";
-let name = "Manish";
+// Question No: 01
+let age = 11;
 
-let word = text + name;
-console.log(word); // Output: My name is: Manish
+if (age >= 18){
+    console.log("You are eligible to vote!");
+}else{
+    console.log("You are not eligible to vote!");
+    
+}
 
-// The price chart is as follows:
+// Question No: 02
 
-let coffee = 5;
-let bagel = 3;
+let ammount = 499;
 
-let total = 'The total is: '+'$'+(coffee + bagel);
-console.log(total); // Output: $8
-console.log(`The total is: $${coffee + bagel}`);
-
-alert(`The total is: $${coffee + bagel}`); // Output: $8
+if(ammount >= 1000){
+    console.log("You can go on a date night!");
+    
+}else if(ammount >= 500 && ammount < 1000){
+    console.log("You can go to a movie!");
+    
+}else{
+    console.log("You can go for a long drive to hell!");
+    
+}
