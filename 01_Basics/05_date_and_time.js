@@ -77,14 +77,14 @@ We can format the date using different methods.
 */
 let now2 = new Date();
 
-console.log(now2.getTime()); // Output: 1633663660000 (timestamp)
-console.log(now2.toDateString()); // Output: "Wed Oct 08 2021"
-console.log(now2.toTimeString()); // Output: "12:31:00 GMT+0530 (India Standard Time)"
-console.log(now2.toLocaleString()); // Output: "10/8/2021, 12:31:00 PM"
-console.log(now2.toUTCString()); // Output: "Fri, 08 Oct 2021 07:01:00 GMT"
-console.log(now2.toISOString()); // Output: "2021-10-08T07:01:00.000Z"
-console.log(now2.toLocaleDateString()); // Output: "10/8/2021"
-console.log(now2.toLocaleTimeString()); // Output: "12:31:00 PM"
+console.log(now2.getTime()); // Output: 1739275871617 (Milisecond)
+console.log(now2.toDateString()); // Output: Tue Feb 11 2025
+console.log(now2.toTimeString()); // Output: 17:41:11 GMT+0530 (India Standard Time)
+console.log(now2.toLocaleString()); // Output: 2/11/2025, 5:41:11 PM
+console.log(now2.toUTCString()); // Output: Tue, 11 Feb 2025 12:11:11 GMT
+console.log(now2.toISOString()); // Output: 2025-02-11T12:11:11.617Z
+console.log(now2.toLocaleDateString()); // Output: 2/11/2025
+console.log(now2.toLocaleTimeString()); // Output: 5:41:11 PM
 
 // ✅ Best format for database storage → toISOString().
 // ✅ Best format for user display → toLocaleString().
