@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f5f5f5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            width: 320px;
+        }
+        .display {
+            padding: 20px;
+            font-size: 2em;
+            background: #333;
+            color: #fff;
+            text-align: right;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+        }
+        button {
+            padding: 20px;
+            border: none;
+            background: #f0f0f0;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:active {
+            background: #ccc;
+        }
+        .operator {
+            background: #ff9500;
+            color: #fff;
+        }
+        .equal {
+            background: #4cd964;
+            color: #fff;
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="appendOperator('%')">%</button>
+            <button class="operator" onclick="appendOperator('/')">÷</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button class="operator" onclick="appendOperator('*')">×</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button class="operator" onclick="appendOperator('-')">−</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button class="operator" onclick="appendOperator('+')">+</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById('display');
+        function appendNumber(number) {
+            if (display.innerText === '0') display.innerText = '';
+            display.innerText += number;
+        }
+        function appendOperator(operator) {
+            display.innerText += ` ${operator} `;
+        }
+        function clearDisplay() {
+            display.innerText = '0';
+        }
+        function deleteLast() {
+            display.innerText = display.innerText.slice(0, -1) || '0';
+        }
+        function calculate() {
+            try {
+                display.innerText = eval(display.innerText.replace(/×/g, '*').replace(/÷/g, '/'));
+            } catch {
+                display.innerText = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
