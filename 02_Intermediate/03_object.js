@@ -28,9 +28,50 @@ let car = {
     brand: "Toyota",
     model: "Corolla",
     year: 2020,
-    start: function() {
-        console.log("Car is starting...");
+    color: "White",
+    start: function(){
+        console.log("Engine started!");
+        
     }
 };
 console.log(car);
+console.log(car["model"]);
+
+console.log(`The brand of car is ${car.brand} and the mode is ${car.model}`);
+
+
+// B. Using new Object()
+let person = new Object();
+person.name = "Manish";
+person.age = 21;
+person.gender = "Male";
+
+console.log(person);
+console.log(typeof person);
+
+// C. Using Constructor Function (Advanced)
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+}
+
+let student = new Person("Manish", 21);
+console.log(student);   
+
+
+// D. Using Class (Modern Way)
+class Animal{
+    constructor(name, type){
+        this.name = name;
+        this.type = type;
+    }
+    makeSound(){
+        console.log(this.sound);
+        
+    }
+}
+
+let dog = new Animal("Doog", "Woof");
+console.log(dog);
+
 
