@@ -245,3 +245,47 @@ console.log(sentence); // Output: "Hello World !"
 When you need to accumulate or combine array elements into a single value.
 When you need to calculate totals, products, or concatenate elements.
 */
+
+/*
+8️⃣ Sorting and Reversing
+Change the order of elements using .sort() and .reverse().
+*/
+
+// 🔹 sort() → Sort Alphabetically or by Function
+let names = ["Zoe", "Anna", "Mark"];
+names.sort();
+console.log(names); // Output: ["Anna", "Mark", "Zoe"]
+
+let numbers5 = [40, 10, 100, 30];
+numbers5.sort((a, b) => a - b); // Ascending
+console.log(numbers5); // Output: [10, 30, 40, 100]
+
+
+// 🔹 reverse() → Reverse Order
+names.reverse();
+console.log(names); // Output: ["Zoe", "Mark", "Anna"]
+
+
+// 🔹 slice() → Copy part of an array
+let nums = [10, 20, 30, 40, 50];
+let part = nums.slice(1, 3);
+console.log(part); // Output: [20, 30]
+
+
+// 🔹 splice() → Add/Remove elements anywhere in the array
+let numss = [10, 20, 30, 40, 50];
+let parts = numss.slice(1, 3);
+console.log(parts); // Output: [20, 30]
+
+// 🔹 join() → Combine array elements into a string
+let wordss = ["Hello", "World"];
+let sentences = wordss.join(" ");
+console.log(sentences); // Output: "Hello World"
+
+
+// 🔹 forEach() → Loop through each element
+let names1 = ["Mansih", "Anubhav", "Chotu"];
+
+names1.forEach((name, index) => {
+  console.log(`${index}: ${name}`);
+});
