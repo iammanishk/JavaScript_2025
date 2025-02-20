@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Creating in js</title>
+</head>
+<body>
+    <h1>Creating elements using JavaScript!</h1>
+
+
+</body>
+
+<script>
+    // creating h2 element
+    let h2 = document.createElement('h2');
+    h2.innerHTML = "This is a heading created using JavaScript!";
+    console.log(h2.innerText);
+
+    // creating div element 
+    const div = document.createElement('div');
+    console.log(div);
+
+    // adding class to div
+    div.className = 'mainDiv';
+
+    // adding id to div
+    div.id = Math.round(Math.random() * 10 + 1);
+
+    // adding other attributes to div
+    div.setAttribute('title', 'This is a div element');
+    div.setAttribute('style', 'background-color: red; color: white; padding: 10px; margin: 10px; border-radius: 10px;');
+
+    // adding text to div
+    div.innerText = "This is a div element created using JavaScript!";
+    let addText = document.createTextNode('\nThis is a text node');
+    div.appendChild(addText);
+    
+    // appending div to body
+    document.body.appendChild(div);
+    
+    
+</script>
+</html>
