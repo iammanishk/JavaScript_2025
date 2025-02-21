@@ -8,7 +8,9 @@
 <body>
     <h1>Creating elements using JavaScript!</h1>
 
-
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
 </body>
 
 <script>
@@ -39,6 +41,38 @@
     // appending div to body
     document.body.appendChild(div);
     
+
+
+    // adding elements to ul using function
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`;
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguage('Python');
+
+    function addOptiLanguage(langName){
+        let li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li);
+    }
+    
+    addOptiLanguage('Java');
+    addOptiLanguage('goLang');
+    addOptiLanguage('Ruby');
+
+
+    // editing elements
+    const secondLang = document.querySelector('li:nth-child(3)')
+    console.log(secondLang);
+    // secondLang.innerHTML = 'C++';
+    const newLang = document.createElement('li');
+    newLang.textContent = 'C';
+    secondLang.replaceWith(newLang);
+
+
+    // removing elements
+    document.querySelector('li:last-child').remove(); // removes last child
     
 </script>
 </html>
