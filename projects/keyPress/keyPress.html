@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Pressed Project</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #12240f;
+        }
+
+        #keyOutput{
+            color: white;
+            font-size: 2rem;
+        }
+        h1{
+            color: rgb(128, 255, 55);
+        }
+
+        input{
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Key Pressed Project!</h1>
+    <input type="text" id="inputField" placeholder="Type something...">
+    <p id="keyOutput"></p>
+</body>
+<script>
+    let input = document.getElementById('inputField');
+    let output = document.getElementById('keyOutput');
+
+    input.addEventListener('keydown', (event) => {
+        output.innerText = `key Pressed: ${event.key}`;
+    })
+
+    input.addEventListener('keyup', (event) => {
+        output.innerText = `key released: ${event.key}`;
+    })
+</script>
+
+</html>
