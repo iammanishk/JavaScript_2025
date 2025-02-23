@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show Result Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <label>Num1</label>
+      <input type="text" id="num1" placeholder="first number"/>
+      <label>Operator</label>
+      <input type="text" id="operator" placeholder="operator" />
+      <label>Num2</label>
+      <input type="text" id="num2" placeholder="second number"/>
+      <button id="finalButton">Click for submit</button>
+      <p id="showResult"></p>
+    </div>
+
+    <div id="parent">
+        <button id="child">Click Me</button>
+    </div>
+    
+  </body>
+  <script>
+    let num1 = document.querySelector('#num1')
+    let num2 = document.querySelector('#num2')
+    let operator = document.querySelector('#operator')
+    let shdowResult = document.querySelector('#showResult')
+    let button = document.querySelector('#finalButton')
+    let finalResult = 0;
+
+
+    button.addEventListener('click', function(){
+        num1 = parseInt(num1.value);
+        num2 = parseInt(num2.value);
+        operator = operator.value;
+        
+
+        if(operator === '+'){
+            finalResult = num1 + num2;
+        }
+        if(operator === '-'){
+            finalResult = num1 - num2;
+        }
+        if(operator === '*'){
+            finalResult = num1 * num2;
+        }
+        if(operator === '/'){
+            finalResult = num1 % num2;
+        }
+        
+        shdowResult.innerHTML = finalResult;
+    })
+
+
+    document.addEventListener("click", function(event) {
+    console.log("X Position: " + event.clientX);
+    console.log("Y Position: " + event.clientY);
+});
+
+
+let parent = document.getElementById("parent");
+let child = document.getElementById("child");
+
+parent.addEventListener("click", function() {
+    alert("Parent Clicked!");
+}, false); // Capturing
+
+child.addEventListener("click", function() {
+    alert("Child Clicked!");
+}, true); // Bubbling
+
+
+  </script>
+</html>
