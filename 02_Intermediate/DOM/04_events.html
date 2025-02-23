@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in DOM</title>
+</head>
+<body>
+        <h1>Events in DOM!</h1>
+        <button id="myButton">Click me!</button>
+        <button id="resetBtn">Reset</button>
+        <p id="showText" ></p>
+</body>
+<script>
+
+    const body  = document.querySelector('body');
+    const button = document.querySelector('#myButton');
+    const showResult = document.querySelector('#showText');
+    const resetButton = document.querySelector('#resetBtn');
+
+    button.addEventListener('click', function(){
+        showResult.innerHTML = "Button Clicked Happily!";
+    })
+
+    resetButton.addEventListener('click', function(){
+        showResult.innerHTML = "";
+    })
+
+    button.addEventListener('mouseover', function(){
+        body.style.backgroundColor = 'lightblue';
+    })
+
+    button.addEventListener('mouseout', function(){
+        body.style.backgroundColor = 'white';
+    })
+    
+
+    resetButton.addEventListener('mouseover', function(){
+        body.style.backgroundColor = 'white';
+    })
+
+    resetButton.addEventListener('mouseout', function(){
+        body.style.backgroundColor = 'lightblue';
+    })
+</script>
+</html>
