@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO Project</title>
+  </head>
+  <body>
+    <input type="text" id="taskInput" placeholder="New Task" />
+    <button id="addTask">Add Task</button>
+    <ul id="taskList"></ul>
+  </body>
+  <script>
+    let addTaskBtn = document.getElementById("addTask");
+    let taskInput = document.getElementById("taskInput");
+    let taskList = document.getElementById("taskList");
+
+    addTaskBtn.addEventListener("click", function () {
+      let taskText = taskInput.value;
+      if (taskText === "") return;
+
+      let newTask = document.createElement("li");
+      newTask.innerText = taskText;
+      taskList.appendChild(newTask);
+
+      taskInput.value = ""; // Clear input field
+    });
+  </script>
+</html>
