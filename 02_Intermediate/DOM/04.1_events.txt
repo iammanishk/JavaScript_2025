@@ -1,0 +1,77 @@
+1️⃣ What are JavaScript Events?
+JavaScript Events are actions or occurrences that happen in the browser, usually as a result of the user interacting with the webpage.
+
+Examples:
+Clicking a button
+Hovering over an image
+Typing in an input field
+Scrolling the page
+
+✅ JavaScript listens for these events and responds by executing code. This makes the webpage dynamic and interactive.
+
+2️⃣ Event Categories
+JavaScript events are generally grouped into several categories:
+
+Mouse Events → Triggered by mouse actions (click, hover)
+Keyboard Events → Triggered by key presses
+Form Events → Triggered by form interactions (input, submit)
+Window Events → Triggered by browser actions (load, resize, scroll)
+Document Events → Triggered by changes in the DOM
+
+3️⃣ Mouse Events
+Mouse events occur when the user interacts with the mouse.
+
+Event	        Description	                            Example
+click	        When an element is clicked	            Button click
+dblclick	    Double-click on an element	            Double-clicking a paragraph
+mousedown	    Mouse button is pressed down	        Starting a drag action
+mouseup	        Mouse button is released	            Releasing a drag action
+mouseover	    Mouse pointer enters an element	        Hover over a menu item
+mouseout	    Mouse pointer leaves an element	        Leaving a menu item
+mousemove	    Moving the mouse within an element	    Drawing on a canvas
+
+
+4️⃣ Keyboard Events
+Keyboard events are triggered when the user interacts with the keyboard.
+
+Event	        Description	                            Example
+keydown	        When a key is pressed down	            Starting to type
+keypress	    When a key is pressed (deprecated)	    Pressing a character key
+keyup	        When a key is released	                Finishing typing a character
+
+
+5️⃣ Form Events
+Form events are triggered when the user interacts with a form element.
+
+Event	Description	                                Example
+submit	When a form is submitted	                Form submission
+change	When the value of an input changes	        Selecting an option
+input	When a value is input	                    Typing in a text box
+focus	When an element gains focus	                Clicking into an input field
+blur	When an element loses focus	                Clicking outside an input field
+
+
+6️⃣ Window Events
+Window events are triggered by changes in the browser window.
+
+Event	    Description	                        Example
+load	    When the page is fully loaded	    Initial scripts after page load
+resize	    When the window is resized	        Responsive design adjustments
+scroll	    When the user scrolls	            Infinite scrolling or sticky navbar
+unload	    When the user leaves the page	    Saving user data or showing exit pop-ups
+
+7️⃣ Document Events
+Document events are related to changes in the HTML document structure.
+
+Event	            Description	                            Example
+DOMContentLoaded	When the initial HTML is fully loaded	Running scripts after DOM load
+visibilitychange	When the tab's visibility changes	    Pausing a video when the tab is hidden
+
+
+🎯 Summary
+✅ JavaScript events make the webpage interactive.
+✅ Events are triggered by user actions (click, input, hover, scroll, etc.).
+✅ We use .addEventListener() to listen for events.
+✅ Mouse, Keyboard, Form, Window, and Document events are the main categories.
+✅ Real-world examples include interactive forms, shopping carts, dynamic content, and animations.
+
