@@ -9,6 +9,13 @@
     <input type="text" id="taskInput" placeholder="New Task" />
     <button id="addTask">Add Task</button>
     <ul id="taskList"></ul>
+
+
+    <!-- add to cart html -->
+    <h2>Shopping Cart</h2>
+    <ul id="cart"></ul>
+    <button id="addItem">Add Item</button>
+
   </body>
   <script>
     let addTaskBtn = document.getElementById("addTask");
@@ -24,6 +31,14 @@
       taskList.appendChild(newTask);
 
       taskInput.value = ""; // Clear input field
+    });
+
+
+    // add to cart js
+    document.getElementById("addItem").addEventListener("click", function() {
+        let item = document.createElement("li");
+        item.innerText = "New Item";
+        document.getElementById("cart").appendChild(item);
     });
   </script>
 </html>
