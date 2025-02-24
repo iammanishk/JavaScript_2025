@@ -1,0 +1,75 @@
+.card {
+    width: 300px;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(27, 31, 35, 0.12), 0 8px 24px rgba(27, 31, 35, 0.12);
+    padding: 16px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.card .name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card .username {
+    font-size: 16px;
+    color: #586069;
+    margin-bottom: 16px;
+}
+
+.card .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.card .stats div {
+    text-align: center;
+}
+
+.card .stats div span {
+    display: block;
+    font-size: 14px;
+    color: #586069;
+}
+
+.card .stats div strong {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card .follow-btn {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    text-align: center;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.card .follow-btn:hover {
+    background-color: #218838;
+}
+button{
+    width: 300px;
+}
