@@ -6,13 +6,28 @@
     <title>Events in DOM</title>
 </head>
 <body>
+    <!-- color changer html -->
         <h1>Events in DOM!</h1>
         <button id="myButton">Click me!</button>
         <button id="resetBtn">Reset</button>
         <p id="showText" ></p>
+
+    <!-- Events Tutorial -->
+     <h2>Amazing Images</h2>
+     <div>
+        <ul id="images">
+            <li><img src="https://cdn.pixabay.com/photo/2022/02/13/11/26/grass-7010936_1280.jpg" alt="Gass" width="200px" id="grass"></li>
+            <li><img src="https://cdn.pixabay.com/photo/2024/11/15/18/16/mountains-9199819_1280.jpg" alt="yelloField" width="200px" id="yelloField"></li>
+            <li><img src="https://cdn.pixabay.com/photo/2025/02/03/21/01/forest-9380292_1280.jpg" alt="winter" width="200px" id="winter"></li>
+            <li><img src="https://cdn.pixabay.com/photo/2024/12/27/14/58/owl-9294302_1280.jpg" alt="owl" width="200px" id="owl"></li>
+            <li><img src="https://cdn.pixabay.com/photo/2025/02/03/21/01/forest-9380294_1280.jpg" alt="morningMOuntain" width="200px" id="morningMOuntain"></li>
+            <li><a href="https://www.google.com" id="google">Google</a></li>
+            
+        </ul>
+     </div>
 </body>
 <script>
-
+    // color changer js
     const body  = document.querySelector('body');
     const button = document.querySelector('#myButton');
     const showResult = document.querySelector('#showText');
@@ -41,6 +56,48 @@
 
     resetButton.addEventListener('mouseout', function(){
         body.style.backgroundColor = 'lightblue';
+    })
+
+
+
+    // ================================ Events Tutorial ================================
+
+    document.getElementById('owl').addEventListener('click', (event) => {
+        console.log(event.clientX, event.clientY); // shows the x an y coordinates of the mouse
+        console.log(event.view); // shows the window object
+        console.log(event.timeStamp); // shows the time when the event was triggered
+        console.log(event.buttons); // shows the number of buttons pressed
+    })
+
+
+    // Event Propagation
+
+    // .........Bubbling.........
+    // Bubbling goes from the target element to the parent element
+    // If you click on the owl image, the event will bubble up to the parent element
+
+    document.getElementById('owl').addEventListener('click', (event) => {
+        console.log('Owl clicked');
+        event.stopPropagation(); // stops the event from bubbling up
+        
+    })
+
+    document.getElementById('images').addEventListener('click', (event) => {
+        console.log('Images clicked');
+    })
+
+
+    // .........Capturing.........
+    // Capturing goes from the parent element to the target element
+    // If you click on the owl image, the event will capture down to the target element
+
+    document.getElementById('owl').addEventListener('click', (event) => {
+        console.log('Owl clicked');
+    }, true)
+
+
+    document.querySelector('img').addEventListener('click', (event) => {
+        console.log(event.parentNode.id);
     })
 </script>
 </html>
