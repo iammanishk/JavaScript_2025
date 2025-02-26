@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync & Async</title>
+</head>
+<body>
+    <h1>Learning Sync & Async in JS</h1>
+    <button id="stop">click</button>
+</body>
+<script>
+    const heading = document.querySelector('h1');
+
+    // set timeout is an example of async function
+    // setTimeout is a function that takes two arguments
+    // 1. a function
+    // 2. a time in milliseconds
+    // setTimeout is a function that will run the function after the time has passed
+    // setTimeout is an example of async function
+    setTimeout(() => {
+        console.log('This is a message')
+    }, 2000);
+        
+    
+    const changeText = function(){
+        heading.innerHTML = 'This is a new text';
+
+    }
+    
+    // clearTimeout is a function that takes a timeout id as an argument
+    // clearTimeout is a function that will stop the timeout from running
+
+    const changeME = setTimeout(changeText, 3000)
+    document.querySelector('#stop').addEventListener('click', () => {
+        console.log('You have clicked the button');        
+        clearTimeout(changeME)
+    })
+
+    let counter = 0;
+
+    let intervalID =  setInterval(() => {
+        counter++;
+        console.log("counter: " + counter);
+
+        if(counter === 5){
+            clearInterval(intervalID);
+            console.log("Interval stoped.");
+            
+        }
+    }, 1000);
+
+
+
+    
+ 
+</script>
+</html>
