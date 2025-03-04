@@ -132,10 +132,24 @@ do{
 
 
 // 26. Create a for loop that calculate the factorial of 5.
+let num3 = 5;
+let fact = 1;
+for(let i = 1; i <= num3; i++){
+    fact = fact*i;
+}
+console.log(`Factorial of 5 is: ${fact}`);
 
 
-
-
+// 27. Write a nested loop to print the grid of 3X3 grid of number.
+let hold = 1;
+for(let i = 1; i <= 3; i++){
+    let num = ' ';
+    for(let j = 1; j <= 3; j++){
+        num = num + hold; 
+        hold++;    
+    }
+    console.log(num);   
+}
 
 </script>
 </html>
