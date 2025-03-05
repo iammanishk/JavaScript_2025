@@ -66,3 +66,42 @@ const proomiseFive = new Promise((resolve, reject) => {
     } else reject("Error: Anubhav went wrong");
     }, 1000)
 })
+
+async function consumePromiseFive () {
+  try{
+    const response = await proomiseFive;
+    console.log(response);
+  }catch{
+    console.log("Error occurred");
+  }
+ 
+}
+
+consumePromiseFive();
+
+// API fetching using async await
+async function randomUserApi(){
+  try{
+      const response = await fetch('https://api.github.com/users/iammanishk');
+      console.log(response);
+      
+      const data = await response.json();
+      console.log(`Name: ${data.name}`);
+      console.log(`Location: ${data.location}`);
+  }catch{
+      console.log("Error occurred");
+  }
+}
+console.log("Random user api👇👇👇👇");
+
+randomUserApi();
+
+
+fetch('https://api.github.com/users/iammanishk').then((response) => {
+  return response.json();
+}).then((data) => {
+  console.log(`user name is: ${data.login}`);
+}).catch((error) => {
+  console.log(error);
+  
+})
