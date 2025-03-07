@@ -50,13 +50,13 @@ Similarly, JavaScript objects inherit properties and methods from their prototyp
 
 // 🔹 Example: Prototype in Action
 
-let person = {
+let persoon = {
     greet: function() {
         console.log("Hello!");
     }
 };
 
-let student1 = Object.create(person); // student inherits from person
+let student1 = Object.create(persoon); // student inherits from person
 student.name = "Alice";
 
 console.log(student1.name); // Alice
@@ -147,8 +147,41 @@ user2.__proto__ = codingLang;
 user1.favLang(); // Inherited from codingLang
 console.log(user2.name);
 user2.favLang(); // It has its own favLang method so it will not inherit from codingLang
-
 //If object and method have same method, object's method will be used.
+
+
+
+// Object.prototype.brain
+let superHero = {
+    fly: ()=>{
+        console.log('I can fly');
+    }
+}
+
+let superHero1 = {
+    name: "Ironman",
+    power: "Suit",
+}
+let superHero2 = {
+    name: "Spiderman",
+    power: "Web",
+}
+
+superHero1.__proto__ = superHero;
+// Injecting anything into the parent directly
+Object.prototype.brain = ()=>{
+    console.log('I have a brain');
+}
+
+
+console.log(superHero1.name);
+console.log(superHero1.fly());
+console.log(superHero1.brain());
+
+
+console.log(superHero2.name);
+console.log(superHero2.brain());
+console.log(superHero2.fly());
 
 
 
@@ -158,3 +191,175 @@ user2.favLang(); // It has its own favLang method so it will not inherit from co
 🔹 Constructor Functions and Prototypes
 A constructor function is used to create multiple objects with shared properties/methods using prototypes.
 */
+// Example: Creating a Prototype with a Constructor
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.greet = function() {
+    console.log(`Hello, my name is ${this.name}`);
+};
+
+let person1 = new Person("Alice", 25);
+let person2 = new Person("Bob", 30);
+
+person1.greet(); // Hello, my name is Alice
+person2.greet(); // Hello, my name is Bob
+
+/*
+✅ Key Points:
+
+Person.prototype.greet adds a method to the prototype.
+person1 and person2 inherit greet() from Person.prototype.
+Instead of creating greet() for every object, they share the same function.
+*/
+
+/*
+🔹 Prototype Inheritance (Extending Objects)
+You can extend an existing object by setting its prototype to another object.
+*/
+// Example: Inheriting from a Parent Object 
+function Animal(name) {
+    this.name = name;
+}
+
+Animal.prototype.eat = function() {
+    console.log(`${this.name} is eating`);
+};
+
+function Dog(name, breed) {
+    Animal.call(this, name); // Call parent constructor
+    this.breed = breed;
+}
+
+// Inherit from Animal
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.bark = function() {
+    console.log(`${this.name} is barking!`);
+};
+
+let myDog = new Dog("Buddy", "Golden Retriever");
+
+myDog.eat();  // Buddy is eating (inherited from Animal)
+myDog.bark(); // Buddy is barking!
+
+/*
+✅ How It Works?
+
+Dog inherits from Animal using Object.create(Animal.prototype).
+Dog gets all the properties & methods of Animal.
+bark() is added only to Dog, not Animal.
+*/
+
+
+/*
+🔹 Summary
+Concept	                Explanation
+Prototype	            A hidden object that stores shared methods & properties
+Prototype Chain	        JavaScript looks up an object’s prototype if a property/method is missing
+Object.create()	        Creates an object that inherits from another object
+Constructor Function	A function to create multiple objects with shared behavior
+Prototype Inheritance	One object inherits properties and methods from another object
+*/
+
+
+/*
+📌 Understanding this and call() in JavaScript (Simple Explanation)
+JavaScript’s this keyword and call() method are very important for controlling how functions are executed and which object they belong to.
+
+🔹 What is this in JavaScript?
+this refers to the object that is calling the function.
+*/
+
+// Example 1: this inside an Object
+let person3 = {
+    name: "Alice",
+    greet: function() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+};
+
+person3.greet();  // Output: Hello, my name is Alice
+// Here, this.name refers to person.name because greet() is called by person.
+
+
+// Example 2: this in a Regular Function (Global Context)
+function showThis() {
+    console.log(this);
+}
+
+showThis();  // In browsers: Window object
+// When a function is called without an object, this refers to the global object (window in browsers).
+
+// Example 3: this in an Event Listener
+let button = document.createElement("button");
+button.innerText = "Click Me";
+document.body.appendChild(button);
+
+button.addEventListener("click", function() {
+    console.log(this);  // Refers to the button element
+});
+// Inside an event listener, this refers to the element that triggered the event.
+
+
+
+
+/*
+🔹 What is call() in JavaScript?
+The call() method is used to manually set the value of this when calling a function.
+*/
+
+// Example 1: Using call() to Borrow a Method
+let personn1 = {
+    name: "Alice",
+    greet: function() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+};
+
+let personn2 = { name: "Bob" };
+
+person1.greet.call(person2); // Hello, my name is Bob
+/*
+✅ Explanation:
+
+greet() originally belongs to person1.
+Using call(person2), we temporarily change this to person2, so it prints "Hello, my name is Bob".
+*/
+
+// Example 2: Using call() with Arguments
+function introduce(age, city) {
+    console.log(`Hi, I am ${this.name}. I am ${age} years old and I live in ${city}.`);
+}
+
+let person = { name: "Alice" };
+
+introduce.call(person, 25, "New York");
+// Output: Hi, I am Alice. I am 25 years old and I live in New York.
+// call() allows us to set this manually and pass arguments individually.
+
+
+
+/*
+🔹 Difference Between call() and apply()
+Both call() and apply() allow you to manually set this, but they handle arguments differently.
+
+Method	    How Arguments are Passed
+call()	    Passed individually (e.g., call(thisArg, arg1, arg2))
+apply()	    Passed as an array (e.g., apply(thisArg, [arg1, arg2]))
+*/
+
+
+// Example: call() vs. apply()
+function introduce(age, city) {
+    console.log(`Hi, I am ${this.name}. I am ${age} years old and I live in ${city}.`);
+}
+
+let personn = { name: "Alice" };
+
+introduce.call(personn, 25, "New York");  
+introduce.apply(personn, [25, "New York"]);  
+// ✅ Both produce the same output, but apply() uses an array.
